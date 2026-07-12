@@ -95,17 +95,13 @@ export function Hero() {
           className="relative"
         >
           <div className="rounded-4xl border border-slate-200 bg-white p-6 shadow-xl dark:border-slate-800 dark:bg-slate-900">
-            <div className="mb-6 flex items-center justify-between">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
-                  Perfil profissional
-                </p>
-                <h3 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
-                  Full Stack com base forte em back-end
-                </h3>
-              </div>
-
-              <div className="h-12 w-12 rounded-2xl bg-indigo-600/10 ring-1 ring-indigo-500/20 dark:bg-indigo-500/10" />
+            <div className="mb-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+                Perfil profissional
+              </p>
+              <h3 className="mt-2 text-2xl font-bold leading-tight text-slate-900 dark:text-white">
+                Full Stack com base forte em back-end
+              </h3>
             </div>
 
             <div className="grid gap-4">
