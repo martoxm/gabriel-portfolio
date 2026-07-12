@@ -38,11 +38,7 @@ export function Projects() {
             Projetos selecionados e conectados ao GitHub
           </h2>
 
-          <p className="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
-            Esta seção combina automação com curadoria: seus projetos públicos
-            são carregados pela API do GitHub, mas os repositórios mais
-            estratégicos aparecem primeiro.
-          </p>
+          <p className="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300"></p>
         </div>
       </SectionReveal>
 
