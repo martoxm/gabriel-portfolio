@@ -1,3 +1,4 @@
+import { motion } from "motion/react"
 import { ThemeToggle } from "./ThemeToggle"
 
 const navItems = [
@@ -11,14 +12,15 @@ const navItems = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-black/10 dark:border-white/10 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-black/10 bg-white/80 backdrop-blur-md dark:border-white/10 dark:bg-slate-950/80">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <a
+        <motion.a
           href="#home"
+          whileHover={{ y: -2 }}
           className="text-sm font-semibold tracking-wide text-slate-900 dark:text-slate-100"
         >
           Gabriel.dev
-        </a>
+        </motion.a>
 
         <nav className="hidden gap-6 md:flex">
           {navItems.map((item) => (

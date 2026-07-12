@@ -1,5 +1,5 @@
 import { Sun, Moon } from "lucide-react"
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import { useTheme } from "../hooks/useTheme"
 
 export function ThemeToggle() {
@@ -10,8 +10,7 @@ export function ThemeToggle() {
       onClick={toggleTheme}
       whileTap={{ scale: 0.85 }}
       whileHover={{ scale: 1.1 }}
-      className="p-2 rounded-full border border-gray-300 dark:border-gray-700 
-                 bg-white dark:bg-gray-800 shadow-sm transition-colors"
+      className="rounded-full border border-gray-300 bg-white p-2 shadow-sm transition-colors dark:border-gray-700 dark:bg-gray-800"
       aria-label="Alternar tema"
     >
       <motion.div
