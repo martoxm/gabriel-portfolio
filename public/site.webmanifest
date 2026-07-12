@@ -1,0 +1,21 @@
+{
+  "name": "Gabriel Martorelli | Portfólio",
+  "short_name": "Gabriel",
+  "description": "Portfólio de Gabriel Martorelli com projetos em .NET, React, TypeScript e APIs REST.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
