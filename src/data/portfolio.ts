@@ -1,25 +1,18 @@
 export const portfolioData = {
   githubUsername: "martoxm",
 
+  featuredProjects: [
+    "cashflow-api",
+    "ControleGastos",
+    "crypto-monitor-fullstack",
+    "lading-page-app",
+  ],
+
   hero: {
     name: "Gabriel Martorelli",
-    badge: "Disponível para estágio e oportunidades júnior",
-    title: "Desenvolvedor Full Stack em formação com foco em .NET e React",
+    title: "Desenvolvedor Full Stack em formação",
     subtitle:
-      "Construo aplicações modernas com C#, ASP.NET Core, React e TypeScript, unindo APIs robustas, interfaces responsivas e boas práticas de arquitetura para projetos reais.",
-    stats: [
-      { label: "Stack principal", value: ".NET + React" },
-      { label: "Foco atual", value: "Back-end e Full Stack" },
-      { label: "Deploy e cloud", value: "Docker + OCI + Nginx" },
-    ],
-    highlights: [
-      "C#",
-      "ASP.NET Core",
-      "React",
-      "TypeScript",
-      "Entity Framework Core",
-      "SQL",
-    ],
+      "Construo aplicações modernas com C#, .NET, React e TypeScript, com foco em projetos reais, arquitetura limpa e evolução contínua para oportunidades de estágio e nível júnior.",
   },
 
   about: {

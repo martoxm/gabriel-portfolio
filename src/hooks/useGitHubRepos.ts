@@ -20,6 +20,11 @@ export function useGitHubRepos(username: string): UseGitHubReposResult {
 
         const response = await fetch(
           `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`,
+          {
+            headers: {
+              Accept: "application/vnd.github+json",
+            },
+          },
         )
 
         if (!response.ok) {
