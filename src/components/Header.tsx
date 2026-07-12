@@ -19,7 +19,7 @@ export function Header() {
           whileHover={{ y: -2 }}
           className="text-sm font-semibold tracking-wide text-slate-900 dark:text-slate-100"
         >
-          Gabriel.dev
+          Marto.dev
         </motion.a>
 
         <nav className="hidden gap-6 md:flex">
