@@ -3,6 +3,11 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+  }
+
   :root {
     --bg: #ffffff;
     --text: #0f172a;
@@ -22,7 +27,4 @@
       background-color 0.3s ease,
       color 0.3s ease;
   }
-}
-html {
-  scroll-behavior: smooth;
 }

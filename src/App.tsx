@@ -1,3 +1,4 @@
+import { ScrollProgress } from "./components/ScrollProgress"
 import { Header } from "./components/Header"
 import { Hero } from "./sections/Hero"
 import { About } from "./sections/About"
@@ -9,6 +10,7 @@ import { Contact } from "./sections/Contact"
 function App() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 transition-colors dark:bg-slate-950 dark:text-white">
+      <ScrollProgress />
       <Header />
 
       <main>
