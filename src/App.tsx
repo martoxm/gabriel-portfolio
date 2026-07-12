@@ -8,7 +8,7 @@ import { Contact } from "./sections/Contact"
 
 function App() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 transition-colors dark:bg-slate-950 dark:text-white">
+    <div className="min-h-screen bg-slate-50 text-slate-900 transition-colors dark:bg-slate-950 dark:text-white">
       <Header />
 
       <main>
