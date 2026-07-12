@@ -1,4 +1,6 @@
 export const portfolioData = {
+  githubUsername: "martoxm",
+
   hero: {
     name: "Gabriel Martorelli",
     title: "Desenvolvedor Full Stack em formação",
