@@ -1,146 +1,148 @@
-import { motion } from "motion/react"
+import { useEffect, useState } from "react"
+import { AnimatePresence, motion } from "motion/react"
+import { ArrowDown, Mail } from "lucide-react"
 import { portfolioData } from "../data/portfolio"
 import { MagneticButton } from "../components/MagneticButton"
+import { Terminal } from "../components/Terminal"
+import { GitHubIcon, LinkedInIcon } from "../components/BrandIcons"
 
-export function Hero() {
-  const { name, title, subtitle } = portfolioData.hero
+const marqueeItems = [
+  "C#", ".NET 10", "ASP.NET Core", "React 19", "TypeScript", "Next.js", "SQL",
+  "Entity Framework", "Docker", "Nginx", "Oracle Cloud", "n8n", "RAG", "Qdrant", "LangGraph", "Tailwind CSS",
+]
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24, filter: "blur(8px)" },
+  show: { opacity: 1, y: 0, filter: "blur(0px)" },
+}
+
+function RotatingWord({ words }: { words: string[] }) {
+  const [index, setIndex] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => setIndex((prev) => (prev + 1) % words.length), 2400)
+    return () => clearInterval(timer)
+  }, [words.length])
 
   return (
-    <section
-      id="home"
-      className="mx-auto flex min-h-[calc(100vh-80px)] max-w-6xl items-center px-4 py-16"
-    >
-      <div className="grid w-full items-center gap-12 lg:grid-cols-2">
-        <div>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-4 inline-flex rounded-full border border-indigo-200 bg-indigo-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-700 dark:border-indigo-500/20 dark:bg-indigo-500/10 dark:text-indigo-300"
+    <span className="relative inline-grid align-bottom">
+      <AnimatePresence mode="popLayout" initial={false}>
+        <motion.span
+          key={words[index]}
+          initial={{ y: "100%", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: "-100%", opacity: 0 }}
+          transition={{ type: "spring", bounce: 0.25, duration: 0.6 }}
+          className="text-gradient col-start-1 row-start-1 whitespace-nowrap"
+        >
+          {words[index]}
+        </motion.span>
+      </AnimatePresence>
+    </span>
+  )
+}
+
+export function Hero() {
+  const { name, role, company, status, subtitle, rotatingWords } = portfolioData.hero
+  const { github, linkedin } = portfolioData.contact
+
+  return (
+    <section id="home" className="relative flex min-h-svh flex-col justify-center pt-28 pb-10">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-14 px-4 lg:grid-cols-[1.15fr_1fr]">
+        <motion.div
+          initial="hidden"
+          animate="show"
+          transition={{ staggerChildren: 0.08, delayChildren: 0.1 }}
+        >
+          <motion.a
+            variants={fadeUp}
+            href="#journey"
+            className="group inline-flex items-center gap-2 rounded-full border border-line bg-surface/60 py-1 pl-1.5 pr-3 text-xs text-muted backdrop-blur transition hover:border-line-strong hover:text-fg"
           >
-            Disponível para estágio e oportunidades júnior
+            <span className="flex items-center gap-1.5 rounded-full bg-ok/10 px-2 py-0.5 font-medium text-ok">
+              <span className="relative flex size-1.5">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-ok opacity-75" />
+                <span className="relative inline-flex size-1.5 rounded-full bg-ok" />
+              </span>
+              Novo
+            </span>
+            {status}
+            <span className="transition group-hover:translate-x-0.5">→</span>
+          </motion.a>
+
+          <motion.p variants={fadeUp} className="mt-8 font-mono text-sm text-muted">
+            Olá, eu sou
           </motion.p>
 
           <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl font-bold tracking-tight text-slate-900 md:text-6xl dark:text-white"
+            variants={fadeUp}
+            className="mt-2 text-5xl font-semibold tracking-tighter text-fg sm:text-6xl lg:text-7xl"
           >
             {name}
           </motion.h1>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-5 text-xl font-semibold leading-tight text-slate-700 md:text-3xl dark:text-slate-200"
-          >
-            {title}
-          </motion.h2>
-
           <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-6 max-w-2xl text-base leading-8 text-slate-600 md:text-lg dark:text-slate-300"
+            variants={fadeUp}
+            className="mt-5 text-2xl font-medium tracking-tight text-muted sm:text-3xl"
           >
+            {role} que constrói <RotatingWord words={rotatingWords} />
+          </motion.p>
+
+          <motion.p variants={fadeUp} className="mt-6 max-w-xl text-base leading-7 text-muted sm:text-lg sm:leading-8">
             {subtitle}
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="mt-8 flex flex-wrap gap-3"
-          >
-            {["C#", ".NET", "React", "TypeScript", "SQL", "Docker"].map(
-              (item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200"
-                >
-                  {item}
-                </span>
-              ),
-            )}
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="mt-10 flex flex-wrap gap-4"
-          >
+          <motion.div variants={fadeUp} className="mt-9 flex flex-wrap items-center gap-3">
             <MagneticButton
               href="#projects"
-              className="rounded-full bg-slate-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-700 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200"
+              className="inline-flex h-11 items-center gap-2 rounded-full bg-fg px-6 text-sm font-medium text-bg shadow-lg shadow-accent/20 transition hover:opacity-90"
             >
               Ver projetos
+              <ArrowDown size={16} />
             </MagneticButton>
 
             <MagneticButton
               href="#contact"
-              className="rounded-full border border-slate-300 px-6 py-3 text-sm font-medium text-slate-900 transition hover:border-slate-400 hover:bg-slate-100 dark:border-slate-700 dark:text-white dark:hover:bg-slate-800"
+              className="inline-flex h-11 items-center gap-2 rounded-full border border-line-strong bg-surface/60 px-6 text-sm font-medium text-fg backdrop-blur transition hover:bg-surface-2"
             >
-              Entrar em contato
+              <Mail size={16} />
+              Vamos conversar
             </MagneticButton>
+
+            <div className="ml-1 flex items-center gap-1">
+              <a href={github} target="_blank" rel="noreferrer" aria-label="GitHub" className="grid size-11 place-items-center rounded-full text-muted transition hover:bg-surface-2 hover:text-fg">
+                <GitHubIcon />
+              </a>
+              <a href={linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="grid size-11 place-items-center rounded-full text-muted transition hover:bg-surface-2 hover:text-fg">
+                <LinkedInIcon />
+              </a>
+            </div>
           </motion.div>
-        </div>
+
+          <motion.p variants={fadeUp} className="mt-8 font-mono text-xs text-subtle">
+            {company} · {portfolioData.contact.location}
+          </motion.p>
+        </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.96, y: 24 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="relative"
+          initial={{ opacity: 0, y: 32, rotateX: 12 }}
+          animate={{ opacity: 1, y: 0, rotateX: 0 }}
+          transition={{ duration: 0.9, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+          style={{ transformPerspective: 1200 }}
         >
-          <div className="rounded-4xl border border-slate-200 bg-white p-6 shadow-xl dark:border-slate-800 dark:bg-slate-900">
-            <div className="mb-6">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
-                Perfil profissional
-              </p>
-              <h3 className="mt-2 text-2xl font-bold leading-tight text-slate-900 dark:text-white">
-                Full Stack com base forte em back-end
-              </h3>
-            </div>
-
-            <div className="grid gap-4">
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950">
-                <p className="text-sm text-slate-500 dark:text-slate-400">
-                  Stack principal
-                </p>
-                <p className="mt-1 text-lg font-semibold text-slate-900 dark:text-white">
-                  .NET + React
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950">
-                <p className="text-sm text-slate-500 dark:text-slate-400">
-                  Foco atual
-                </p>
-                <p className="mt-1 text-lg font-semibold text-slate-900 dark:text-white">
-                  Back-end e Full Stack
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950">
-                <p className="text-sm text-slate-500 dark:text-slate-400">
-                  Deploy e cloud
-                </p>
-                <p className="mt-1 text-lg font-semibold text-slate-900 dark:text-white">
-                  Docker + OCI + Nginx
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-6 rounded-2xl border border-dashed border-slate-300 p-4 dark:border-slate-700">
-              <p className="text-sm leading-7 text-slate-600 dark:text-slate-300">
-                Portfólio orientado a projetos reais, consumo de API,
-                arquitetura limpa, deploy e evolução contínua para o mercado.
-              </p>
-            </div>
-          </div>
+          <Terminal />
         </motion.div>
+      </div>
+
+      <div aria-hidden="true" className="marquee-wrap relative mt-20 overflow-hidden border-y border-line py-5 [mask-image:linear-gradient(90deg,transparent,#000_15%,#000_85%,transparent)]">
+        <div className="marquee flex w-max gap-10">
+          {[...marqueeItems, ...marqueeItems].map((item, index) => (
+            <span key={index} className="flex items-center gap-10 font-mono text-sm text-subtle transition-colors hover:text-fg">
+              {item}
+              <span className="text-accent/50">✦</span>
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   )

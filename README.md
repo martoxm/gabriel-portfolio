@@ -1,10 +1,10 @@
 # Meu Portfolio
 
-Portfólio profissional desenvolvido para apresentar meus projetos, habilidades técnicas e trajetória como desenvolvedor em formação, com foco em oportunidades de estágio e posições júnior em desenvolvimento **backend** e full stack.
+Portfólio profissional para apresentar meus projetos, habilidades técnicas e trajetória como **Desenvolvedor Full Stack na PROVER Soluções em TI**, com foco em .NET, React e agentes de IA.
 
-![Vite](https://img.shields.io/badge/Vite-7.x-646CFF?logo=vite&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-8.x-646CFF?logo=vite&logoColor=white)
 ![React](https://img.shields.io/badge/React-19.x-61DAFB?logo=react&logoColor=0A0A0A)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-6.x-3178C6?logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-06B6D4?logo=tailwindcss&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?logo=vercel&logoColor=white)
 
@@ -24,11 +24,13 @@ Aplicação publicada em produção:
 
 O portfólio inclui seções voltadas para apresentação profissional e navegação rápida:
 
-- Hero section com posicionamento profissional e stack principal.
-- Seção sobre mim com foco em trajetória e objetivo de carreira.
-- Projetos em destaque com contexto técnico.
-- Área de contato com links profissionais.
-- Layout responsivo com tema visual moderno e deploy em produção.
+- Hero com terminal interativo (`help`, `whoami`, `stack`, `projetos`, `exp`, `certs`...).
+- Paleta de comandos com `Ctrl/⌘ + K` para navegar, copiar e-mail, trocar tema e abrir projetos.
+- Sobre mim em bento grid com cards de spotlight que seguem o cursor.
+- Stack em abas animadas por área (Back-end, Front-end, IA & Automação, Cloud & Dados).
+- Projetos com filtros animados, tilt 3D e estrelas/atualizações ao vivo da API do GitHub.
+- Trajetória em linha do tempo que se desenha conforme o scroll, com certificações.
+- Tema claro/escuro com View Transitions API e reveals com animações CSS scroll-driven.
 
 ![Preview do portfólio](./public/preview.png)
 

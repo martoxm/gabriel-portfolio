@@ -1,13 +1,6 @@
 import { useEffect, useState } from "react"
 
-const sectionIds = [
-  "home",
-  "about",
-  "skills",
-  "projects",
-  "experience",
-  "contact",
-]
+export const sectionIds = ["home", "about", "skills", "projects", "journey", "contact"]
 
 export function useActiveSection() {
   const [activeSection, setActiveSection] = useState("home")
@@ -25,18 +18,12 @@ export function useActiveSection() {
           setActiveSection(visibleEntry.target.id)
         }
       },
-      {
-        root: null,
-        rootMargin: "-40% 0px -40% 0px",
-        threshold: 0.1,
-      },
+      { rootMargin: "-45% 0px -45% 0px" },
     )
 
     sections.forEach((section) => observer.observe(section))
 
-    return () => {
-      sections.forEach((section) => observer.unobserve(section))
-    }
+    return () => observer.disconnect()
   }, [])
 
   return activeSection

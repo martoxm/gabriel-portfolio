@@ -1,30 +1,37 @@
-import { ScrollProgress } from "./components/ScrollProgress"
-import { Header } from "./components/Header"
+import { MotionConfig } from "motion/react"
+import { Background } from "./components/Background"
+import { CommandPalette } from "./components/CommandPalette"
 import { Footer } from "./components/Footer"
-import { Hero } from "./sections/Hero"
+import { Header } from "./components/Header"
+import { Toast } from "./components/Toast"
 import { About } from "./sections/About"
-import { Skills } from "./sections/Skills"
-import { Projects } from "./sections/Projects"
-import { Experience } from "./sections/Experience"
 import { Contact } from "./sections/Contact"
+import { Hero } from "./sections/Hero"
+import { Journey } from "./sections/Journey"
+import { Projects } from "./sections/Projects"
+import { Skills } from "./sections/Skills"
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 transition-colors dark:bg-slate-950 dark:text-white">
-      <ScrollProgress />
-      <Header />
+    <MotionConfig reducedMotion="user">
+      <div className="relative min-h-screen overflow-x-clip text-fg">
+        <Background />
+        <Header />
 
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Contact />
-      </main>
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Journey />
+          <Contact />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+        <CommandPalette />
+        <Toast />
+      </div>
+    </MotionConfig>
   )
 }
 
