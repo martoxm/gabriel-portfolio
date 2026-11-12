@@ -145,13 +145,14 @@ export const portfolioData = {
       demo: "https://colab.martodev.online",
     },
     {
-      repo: "restaurante-estoque",
-      title: "Estoque para Restaurante",
+      repo: "gestao-restaurante",
+      title: "Gestão Restaurante",
       description:
         "Controle de estoque com API em .NET 10 usando CQRS, DDD e MediatR, e front-end em Next.js com Tailwind e shadcn/ui.",
       stack: [".NET 10", "CQRS", "MediatR", "Next.js", "shadcn/ui"],
       category: "fullstack",
       highlight: "Mais recente",
+      demo: "https://gestao.martodev.online/",
     },
     {
       repo: "crypto-monitor-fullstack",
