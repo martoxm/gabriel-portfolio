@@ -135,16 +135,6 @@ export const portfolioData = {
 
   projects: [
     {
-      repo: "alura-ecommerce-agent",
-      title: "Agente de IA para E-commerce",
-      description:
-        "Assistente corporativo que responde colaboradores com base nos documentos internos da empresa, com memória de contexto. Apresentado na live Show Me Projects da Alura.",
-      stack: ["React", "ASP.NET Core", "n8n", "Cohere", "Qdrant", "OCI"],
-      category: "ia",
-      highlight: "RAG em produção",
-      demo: "https://colab.martodev.online",
-    },
-    {
       repo: "gestao-restaurante",
       title: "Gestão Restaurante",
       description:
@@ -153,6 +143,16 @@ export const portfolioData = {
       category: "fullstack",
       highlight: "Mais recente",
       demo: "https://gestao.martodev.online/",
+    },
+    {
+      repo: "alura-ecommerce-agent",
+      title: "Agente de IA para E-commerce",
+      description:
+        "Assistente corporativo que responde colaboradores com base nos documentos internos da empresa, com memória de contexto. Apresentado na live Show Me Projects da Alura.",
+      stack: ["React", "ASP.NET Core", "n8n", "Cohere", "Qdrant", "OCI"],
+      category: "ia",
+      highlight: "RAG em produção",
+      demo: "https://colab.martodev.online",
     },
     {
       repo: "crypto-monitor-fullstack",
